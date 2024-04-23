@@ -8,10 +8,6 @@ Serviço Rest, cuja finalidade é prover endpoints de Servidor de Identidade: di
 
 
 + Gerenciamento de plataformas    
-
-<p>  teteste
-tete te tete  </p>    
-
 + Gerenciamento de aplicações
 + Gerenciamento de organizações
 + Gerenciamento usuarios
@@ -49,18 +45,10 @@ tete te tete  </p>
 
 - [x] Cadastro
 
-## layout
-
-+ resse
-+ reste
-+ teste
-
-
 
 ## Instruções para rodar o projeto 
 
 ### 1. Criar um container  de dados SQL Server
-
 
 as instruções abaixo server para levantar os um container de banco de dados SQL server com para gerir os dados de 
 ```bash
@@ -74,8 +62,10 @@ as instruções abaixo server para levantar os um container de banco de dados SQ
 
 ```
 
-
  ### 2. Aplicar o Migration 
+
+
+ ### 3. Aplicar o Seed 
 
 
  LinkED
