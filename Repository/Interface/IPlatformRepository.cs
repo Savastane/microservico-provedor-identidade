@@ -7,7 +7,11 @@ namespace Academico.Domain.Interface
     {
         
         Task<Platform> GetByName(string email);
-        
+
+        IPlatformRepository SetDbSet(dynamic db);
+
+        Task InsertAsync(Platform entity);
+
     }
 
 }

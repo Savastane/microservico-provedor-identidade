@@ -3,17 +3,18 @@ using Academico.Domain.Interface;
 
 using Academico.System.Configuration;
 using Microsoft.EntityFrameworkCore;
+using system.Security.API.Domain.Abstracts;
 using systemsecurity.domain;
 
 namespace Academico.Repository
 {
     public class PlatformRepository : IPlatformRepository
     {
-        private SystemContext systemContext;
+        private readonly IRepository<Platform> _repository;
 
-        public PlatformRepository(SystemContext db) {
-            systemContext = db;
-
+        public PlatformRepository(IRepository<Platform> repository)
+        {
+            _repository = repository;
         }
 
         public Task<Platform> Block(Platform entity)
@@ -25,6 +26,12 @@ namespace Academico.Repository
         {
             throw new NotImplementedException();
         }
+
+        public async Task InsertAsync(Platform entity)
+        {
+            await _repository.InsertAsync(entity);
+        }
+
 
         public Task<IEnumerable<Platform>> GetAll()
         {
@@ -55,5 +62,13 @@ namespace Academico.Repository
         {
             throw new NotImplementedException();
         }
+
+        IPlatformRepository IPlatformRepository.SetDbSet(dynamic db)
+        {
+            _repository.SetDbSet(db);
+            return this;
+
+        }
+
     }
 }

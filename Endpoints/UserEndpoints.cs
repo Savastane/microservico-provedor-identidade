@@ -44,7 +44,7 @@ namespace SecurityAPI.endpoint
                 .Produces(StatusCodes.Status400BadRequest)
                 .Produces(StatusCodes.Status500InternalServerError);
 
-            app.MapPut("user/v1/update/{}", [AllowAnonymous] async (HttpContext http, IMediator mediator, InsertUserRequest request) =>
+            app.MapPut("user/v1/update/{id:guid}", [AllowAnonymous] async (HttpContext http, IMediator mediator, InsertUserRequest request, Guid id) =>
             {
                 return await BaseEndpoint.Ok(mediator, request);
 
@@ -52,6 +52,9 @@ namespace SecurityAPI.endpoint
                 .Produces(StatusCodes.Status404NotFound)
                 .Produces(StatusCodes.Status400BadRequest)
                 .Produces(StatusCodes.Status500InternalServerError);
+
+
+
 
         }
 

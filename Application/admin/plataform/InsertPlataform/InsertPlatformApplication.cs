@@ -10,16 +10,16 @@
     using system.Security.Entity.Collection;
     using global::Application.General.Exceptions;
 
-    public class InsertPlataformApplication : IRequestHandler<InsertPlataformRequest, InsertPlataformResponse>
+    public class InsertPlatformApplication : IRequestHandler<InsertPlatformRequest, InsertPlatformResponse>
     {
         private readonly IPlatformRepository _repository;
         
-        public InsertPlataformApplication(IPlatformRepository repository, IValidator<InsertPlataformRequest> validatorRequest)
+        public InsertPlatformApplication(IPlatformRepository repository, IValidator<InsertPlatformRequest> validatorRequest)
         {
             _repository = repository;            
         }
         
-        public async Task<InsertPlataformResponse> Handle(InsertPlataformRequest request, CancellationToken cancellationToken)
+        public async Task<InsertPlatformResponse> Handle(InsertPlatformRequest request, CancellationToken cancellationToken)
         {
             var plataform = request.Mapear();
 
@@ -37,12 +37,12 @@
                 {
                     Applications = new List<ApplicationDocument>()
                 };
-
-//plataform = await _repository.Insert(plataform);
+                //plataform =
+                await _repository.InsertAsync(plataform);
             
             }
                        
-            return new InsertPlataformResponse().Mapear(plataform);                         
+            return new InsertPlatformResponse().Mapear(plataform);                         
 
         }
     }

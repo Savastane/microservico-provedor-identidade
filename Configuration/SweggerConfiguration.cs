@@ -1,5 +1,6 @@
 ﻿using Microsoft.OpenApi.Models;
 using systemsecurity.domain;
+using Microsoft.AspNetCore.Builder;
 
 namespace SecurityAPI.configuration
 {
@@ -7,6 +8,7 @@ namespace SecurityAPI.configuration
     {
         public static void AddSweggerConfiguration(this IServiceCollection services)
         {
+
             services.AddSwaggerGen(options =>
             {
                 options.SwaggerDoc("v1", new OpenApiInfo

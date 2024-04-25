@@ -13,6 +13,7 @@ namespace system.Security.API.Repository
     {
         private readonly SystemContext _context;
         private  IUserRepository _userRepository;
+        private  IPlatformRepository _platformRepository;
 
         public UnitOfWork(SystemContext context)
         {            
@@ -38,6 +39,17 @@ namespace system.Security.API.Repository
             }
 
             return _userRepository;
+        }
+
+        public IPlatformRepository GetPlatformRepository()
+        {
+            if (_platformRepository is null)
+            {
+                _platformRepository = new PlatformRepository(new Repository<Platform>());
+                _platformRepository.SetDbSet(_context);
+            }
+
+            return _platformRepository;
         }
 
 

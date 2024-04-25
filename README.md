@@ -69,6 +69,6 @@ as instruções abaixo server para levantar os um container de banco de dados SQ
 
 
  LinkED
- Foto
+ Fotofit a
 
  Proximos passos

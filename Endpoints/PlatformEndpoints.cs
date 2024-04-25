@@ -8,7 +8,7 @@ namespace SecurityAPI.endpoint
     {        
         public static void AddPlataformEndpoint(this WebApplication app)
         {
-            app.MapPost("platform/v1/inserir", [AllowAnonymous] async (HttpContext http, IMediator mediator, RoleRequest request) =>
+            app.MapPost("platform/v1/inserir", [AllowAnonymous] async (HttpContext http, IMediator mediator, InsertPlatformRequest request) =>
             {
                 return await BaseEndpoint.Accepted(mediator, request);
 

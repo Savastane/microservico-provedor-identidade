@@ -17,7 +17,7 @@ namespace SecurityAPI.configuration
             services.AddScoped<IValidator<AuthenticateUserRequest>, AuthenticateUserValidator>();
             services.AddScoped<IValidator<InsertUserRequest>, InsertUserValidator>();           
             
-            services.AddScoped<IValidator<InsertPlataformRequest>, InsertPlataformValidator>();
+            services.AddScoped<IValidator<InsertPlatformRequest>, InsertPlatformValidator>();
 
 
             // systema
