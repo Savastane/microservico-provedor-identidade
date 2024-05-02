@@ -14,6 +14,7 @@ namespace system.Security.API.Repository
         private readonly SystemContext _context;
         private  IUserRepository _userRepository;
         private  IPlatformRepository _platformRepository;
+        private  IApplicationRepository _applicationRepository;
 
         public UnitOfWork(SystemContext context)
         {            
@@ -52,6 +53,20 @@ namespace system.Security.API.Repository
             return _platformRepository;
         }
 
+
+        public IApplicationRepository GetApplicationRepository()
+        {
+            /*
+            if (_applicationRepository is null)
+            {
+                
+                _applicationRepository = new ApplicationRepository(new Repository<Application>());
+                _applicationRepository.SetDbSet(_context);
+            }
+            */
+
+            return _applicationRepository;
+        }
 
     }
 }

@@ -31,32 +31,31 @@ namespace system.Security.API.Configuration.Entity
                 options.ToJson();
                 options.OwnsMany(colection => colection.Applications,
                                            options => options.OwnsMany(applicationcontext => applicationcontext.Roles));
-
             });
 
-            builder.HasData(
-                new systemsecurity.domain.Platform
-                {
-                    Id = Guid.NewGuid(),
-                    Slug = "",
-                    Name = "Level",
-                    Scope = "Marketing Place Servicos (xell) )",
-                    Description = "Marketing Place Servicos",
-                    IsBlock = 0,
-                    IsRemove = 0,
-                    ApplicationCollection = new ApplicationCollection() {
-                        Applications = new List<ApplicationDocument>() { 
-                          new ApplicationDocument(){
-                              Guid = Guid.NewGuid(),
-                              Slug ="",
-                              Roles = new() {                                    
-                              }
-                          }
-                        }
-                    },  
-                    Status = "Ativo"
-                }
-           ); 
+           // builder.HasData(
+           //     new systemsecurity.domain.Platform
+           //     {
+           //         Id = Guid.NewGuid(),
+           //         Slug = "",
+           //         Name = "Level",
+           //         Scope = "Marketing Place Servicos (xell) )",
+           //         Description = "Marketing Place Servicos",
+           //         IsBlock = 0,
+           //         IsRemove = 0,
+           //         ApplicationCollection = new ApplicationCollection() {
+           //             Applications = new List<ApplicationDocument>() { 
+           //               new ApplicationDocument(){
+           //                   Guid = Guid.NewGuid(),
+           //                   Slug ="",
+           //                   Roles = new() {                                    
+           //                   }
+           //               }
+           //             }
+           //         },  
+           //         Status = "Ativo"
+           //     }
+           //); 
 
         }
     }

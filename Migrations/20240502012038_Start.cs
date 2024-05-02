@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace system.Security.API.Migrations
+namespace Security.API.Migrations
 {
     /// <inheritdoc />
-    public partial class inicial : Migration
+    public partial class Start : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -210,10 +210,6 @@ namespace system.Security.API.Migrations
                 table: "User",
                 columns: new[] { "GuidPlataform", "Email" },
                 unique: true);
-
-
-
-
         }
 
         /// <inheritdoc />

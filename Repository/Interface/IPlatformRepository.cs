@@ -6,7 +6,7 @@ namespace Academico.Domain.Interface
     public interface IPlatformRepository
     {
         
-        Task<Platform> GetByName(string email);
+        Task<Platform> GetByName(string nome);
 
         IPlatformRepository SetDbSet(dynamic db);
 

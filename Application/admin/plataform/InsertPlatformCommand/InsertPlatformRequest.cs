@@ -9,7 +9,7 @@
 
     /// <summary>
     /// Request Login
-    /// </summary>
+    /// </summary>    
     public class InsertPlatformRequest : IRequest<InsertPlatformResponse>
     {          
         public Guid? IdPlatform { get; set; }                

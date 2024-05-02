@@ -40,12 +40,12 @@ namespace Academico.Repository
 
         public Task<Platform> GetByGuid(string guid)
         {
-            throw new NotImplementedException();
+            return _repository.GetByGuidAsync(guid);
         }
 
-        public Task<Platform> GetByName(string email)
+        public Task<Platform> GetByName(string nome)
         {
-            throw new NotImplementedException();
+            return _repository.GetSet().Where(u => u.Name.Equals(nome)).FirstOrDefaultAsync();
         }
 
         public Task<List<Platform>> GetPlataforms()

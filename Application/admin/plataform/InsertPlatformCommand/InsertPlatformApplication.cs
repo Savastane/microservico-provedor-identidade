@@ -9,21 +9,24 @@
     
     using system.Security.Entity.Collection;
     using global::Application.General.Exceptions;
+    using system.Security.API.Domain.Abstracts;
+    using systemsecurity.domain;
 
     public class InsertPlatformApplication : IRequestHandler<InsertPlatformRequest, InsertPlatformResponse>
     {
-        private readonly IPlatformRepository _repository;
+        private readonly IUnitOfWork _UnitOfWork;
+                
         
-        public InsertPlatformApplication(IPlatformRepository repository, IValidator<InsertPlatformRequest> validatorRequest)
+        public InsertPlatformApplication(IUnitOfWork UnitOfWork, IValidator<InsertPlatformRequest> validatorRequest)
         {
-            _repository = repository;            
+            _UnitOfWork = UnitOfWork;
         }
         
         public async Task<InsertPlatformResponse> Handle(InsertPlatformRequest request, CancellationToken cancellationToken)
         {
             var plataform = request.Mapear();
 
-            var plataformFind = await _repository.GetByName(plataform.Name);
+            var plataformFind = await _UnitOfWork.GetPlatformRepository().GetByName(plataform.Name);
 
 
             if (plataformFind is not null)
@@ -37,11 +40,23 @@
                 {
                     Applications = new List<ApplicationDocument>()
                 };
-                //plataform =
-                await _repository.InsertAsync(plataform);
+                               
+                await _UnitOfWork.GetPlatformRepository().InsertAsync(plataform);
             
             }
-                       
+
+
+            try
+            {
+                await _UnitOfWork.CommitAsync();
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
+
+
             return new InsertPlatformResponse().Mapear(plataform);                         
 
         }

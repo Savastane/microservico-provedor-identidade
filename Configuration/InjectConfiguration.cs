@@ -16,15 +16,12 @@ namespace SecurityAPI.configuration
             services.AddSingleton<JwtHandler>();
 
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IPlatformRepository, PlatformRepository>();
-            services.AddScoped<IApplicationRepository, ApplicationRepository>();
+            services.AddScoped<IApplicationRepository, ApplicationRepository>();            
             
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-
-            
-            
-//            services.AddScoped<IApplicationRepository, ApplicationRepository>();
             services.AddScoped<ITokenService, TokenService>();
         }
     }

@@ -34,6 +34,8 @@
   <ItemGroup>
     <Folder Include="Application\admin\GerenciarPermissoes\" />
     <Folder Include="Application\admin\application\InsertApplication\" />
+    <Folder Include="Application\admin\plataform\ListarPlatformQuery\" />
+    <Folder Include="Application\admin\plataform\UpdatePlatformCommand\" />
     <Folder Include="Application\admin\route\" />
     <Folder Include="Application\eventbus\InsertUser\" />
     <Folder Include="Application\user\AlterarSenha\" />

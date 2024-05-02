@@ -62,10 +62,48 @@ as instruções abaixo server para levantar os um container de banco de dados SQ
 
 ```
 
+
  ### 2. Aplicar o Migration 
 
+as instruções abaixo para rodar o migration
+```bash
+
+
+ # 
+ # preparar um script de migracao 
+ Add-Migration Start
+
+
+ # 
+ # aplicar o ultimo migration gerado
+ dotnet ef database update
+  
+
+```
 
  ### 3. Aplicar o Seed 
+
+```bash
+
+
+ # 
+ # preparar um script de migracao 
+ curl -X POST \
+  http://localhost:5200//api/platforms \
+  -H 'Content-Type: application/json' \
+  -d '{
+        "Nome": "Plataforma X ",
+        "Descricao": "Descrição da Plataforma X",
+        "Scopo": "O Escopo da Plataforma X",
+        "Apelido": "X",
+        "Apps": ["App1", "App2"]
+     }'
+  
+
+```
+
+
+
 
 
  LinkED
